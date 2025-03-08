@@ -1,79 +1,81 @@
-
+/* General Page Styling */
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
   margin: 0;
-  padding-top: 0px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Header Styling */
+.header-nav {
+  background-color: #007bff;
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Container */
+.user-detail-container {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
   text-align: center;
 }
 
-/* Header */
-.header-nav {
-  background: #007bff;
-  padding: 15px;
-  color: white;
-  font-size: 22px;
-}
-
-/* Container */
-.user-detail-container {
-  max-width: 900px;
-  margin: auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Cards */
+/* Card Styling */
 .card {
   background: #fff;
+  border: 1px solid #ddd;
   padding: 15px;
   margin: 15px 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   text-align: left;
 }
 
 .card h3 {
-  margin: 0;
-  color: #007bff;
-  font-size: 18px;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 5px;
-}
-
-.card p {
-  margin: 8px 0;
+  margin-top: 0;
   color: #333;
 }
 
-/* Button */
+/* Text Styling */
+p {
+  font-size: 16px;
+  color: #444;
+  margin: 5px 0;
+}
+
+strong {
+  color: #222;
+}
+
+/* Dashboard Button */
 .dashboard-btn {
   display: inline-block;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 12px 20px;
+  background-color: #007bff;
   color: white;
-  background: #007bff;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: 0.3s;
+  font-size: 16px;
+  font-weight: bold;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
+  margin-top: 15px;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
 
 .dashboard-btn:hover {
-  background: #0056b3;
-}
-.panel {
-  font-size: 18px;
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start;
-  padding: 20px;
-}
-
-.panel p {
-  margin: 10px 0;
+  background-color: #0056b3;
 }
