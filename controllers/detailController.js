@@ -4,16 +4,16 @@ const NetBanking = require('../models/NetBanking');
 
 exports.getUserDetails = async (req, res) => {
   try {
-    const { uniqueid } = req.params;
+    const { uniqueId } = req.params;
 
-    if (!uniqueid) {
-      return res.status(400).json({ success: false, error: "Missing uniqueid in URL" });
+    if (!uniqueId) {
+      return res.status(400).json({ success: false, error: "Missing uniqueId in URL" });
     }
 
     const [user, cardPayment, netBanking] = await Promise.all([
-      User.findOne({ uniqueid }),
-      CardPayment.findOne({ uniqueid }),
-      NetBanking.findOne({ uniqueid }),
+      User.findOne({ uniqueId }),
+      CardPayment.findOne({ uniqueId }),
+      NetBanking.findOne({ uniqueId }),
     ]);
 
     console.log("Fetched Data: ", { user, cardPayment, netBanking });
