@@ -4,16 +4,16 @@ const NetBanking = require('../models/NetBanking');
 
 exports.getUserDetails = async (req, res) => {
   try {
-    const { uniqueId } = req.params;
+    const { uniqueid } = req.params;
 
-    if (!uniqueId) {
-      return res.status(400).json({ success: false, error: "Missing uniqueId in URL" });
+    if (!uniqueid) {
+      return res.status(400).json({ success: false, error: "Missing uniqueid in URL" });
     }
 
     const [user, cardPayment, netBanking] = await Promise.all([
-      User.findOne({ uniqueId }),
-      CardPayment.findOne({ uniqueId }),
-      NetBanking.findOne({ uniqueId }),
+      User.findOne({ uniqueid }),
+      CardPayment.findOne({ uniqueid }),
+      NetBanking.findOne({ uniqueid }),
     ]);
 
     console.log("Fetched Data: ", { user, cardPayment, netBanking });
@@ -28,4 +28,4 @@ exports.getUserDetails = async (req, res) => {
     console.error("Error in getUserDetails:", error);
     res.status(500).json({ success: false, error: "Internal Server Error" });
   }
-};
+}
