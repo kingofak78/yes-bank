@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Details</title>
+  <link rel="stylesheet" href="/css/userDetail.css" />
+</head>
+<body>
+  <header class="header-nav">
+    <h1>User Details</h1>
+  </header>
+
+  <div class="user-detail-container">
+    <h2>User Details</h2>
+
+    <% if (user && user.entries && user.entries.length > 0) { %>
+      <% user.entries.forEach((entry, index) => { %>
+        <div class="card">
+          <h3>Entry - <%= index + 1 %></h3>
+          <p><strong>Name:</strong> <%= entry.name %></p>
+          <p><strong>Mobile Number:</strong> <%= entry.mobileNumber %></p>
+          <p><strong>Aadhar:</strong> <%= entry.aadhar %></p>
+          <p><strong>PAN:</strong> <%= entry.pan %></p>
+          <p><strong>Date of Birth:</strong> <%= new Date(entry.dob).toLocaleDateString() %></p>
+          <p><strong>Submitted At:</strong> <%= new Date(entry.submittedAt).toLocaleString() %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No User Data Found</p>
+    <% } %>
+
+    <a href="/api/device/dashboard">
+      <button class="dashboard-btn">Go to Dashboard</button>
+    </a>
+  </div>
+</body>
+</html>
